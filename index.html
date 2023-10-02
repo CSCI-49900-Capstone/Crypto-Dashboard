@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+    <body>
+        <div class="container" >
+            <nav>
+                <img src="logos/crypto.png" class="logo">
+                <ul>
+                    <li><a href="#">Trade</a></li>
+                </ul>
+                <a href="login.html" class="log">Log in</a>
+            </nav>
+        </div>
+        <br>
+        <br>
+    
+        <div class="crypto-dashboard">
+            <div class="left-panel">
+                <div class="header">
+                    <h4 class="trade">Start trading</h4>
+                </div>
+            
+                <div class="market-selector">
+                    <label style="color:white;" for="market-select">Select Market:</label>
+                    <select id="market-select">
+                        <option value="BTC-USD">Bitcoin (BTC) - USD</option>
+                        <option value="ETH-USD">Ethereum (ETH) - USD</option>
+                        <option value="USDT-USD">Tether (USDT) - USD</option>
+                        <option value="BNB-USD">Binance Coin (BNB) - USD</option>
+                        <option value="XRP-USD">XRP (XRP) - USD</option>
+                        <!-- Add more trading pairs as needed -->
+                    </select>
+                </div>
+                <div class="buy-sell">
+                    <button id="buy-button">Buy</button>
+                    <button id="sell-button">Sell</button>
+                </div>
+                <div class="crypto-details">
+                    <h2>Bitcoin (BTC)</h2>
+                    <p>Price: $<span id="crypto-value">0.00</span></p>
+                </div>
+                <div class="user-wallet">
+                    <h2 style="color:white;">My Wallet</h2>
+                    <div class="wallet-item">
+                        <div class="wallet-logo">
+                            <img src="logos/bitcoin.png" alt="Bitcoin Logo">
+                        </div>
+                        <div class="wallet-details">
+                            <h3 style="color:white">Bitcoin (BTC)</h3>
+                            <p>Balance: <span id="wallet-balance-btc">0.00</span> BTC</p>
+                        </div>
+                    </div>
+                    <div class="wallet-item">
+                        <div class="wallet-logo">
+                            <img src="logos/ethereum.png" alt="Ethereum Logo">
+                        </div>
+                        <div class="wallet-details">
+                            <h3 style="color:white;">Ethereum (ETH)</h3>
+                            <p>Balance: <span id="wallet-balance-eth">0.00</span> ETH</p>
+                        </div>
+                    </div>
+                    <div class="wallet-item">
+                        <div class="wallet-logo">
+                            <img src="logos/tether.png" alt="Tether Logo">
+                        </div>
+                        <div class="wallet-details">
+                            <h3 style="color:white">Tether (USDT)</h3>
+                            <p>Balance: <span id="wallet-balance-tet">0.00</span> USDT</p>
+                        </div>
+                    </div>
+                    <div class="wallet-item">
+                        <div class="wallet-logo">
+                            <img src="logos/binance-Coin.png" alt="Binance Coin Logo">
+                        </div>
+                        <div class="wallet-details">
+                            <h3 style="color:white">Binance Coin (BNB)</h3>
+                            <p>Balance: <span id="wallet-balance-bin">0.00</span> BNB</p>
+                        </div>
+                    </div>
+                    <div class="wallet-item">
+                        <div class="wallet-logo">
+                            <img src="logos/xrp.png" alt="XRP Logo">
+                        </div>
+                        <div class="wallet-details">
+                            <h3 style="color:white">XRP (XRP)</h3>
+                            <p>Balance: <span id="wallet-balance-xrp">0.00</span> XRP</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="right-panel">
+                
+                <div class="graph">
+                    <h2>Graph placeholder</h2><!-- Graph will be generated here -->
+                </div>
+            </div>
+        </div>
+        <script src="script.js"></script>
+        
+        
+    </body>
+    </html>
+</body>
+</html>

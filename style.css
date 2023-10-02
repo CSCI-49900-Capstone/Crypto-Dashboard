@@ -1,0 +1,230 @@
+*{ 
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    flex-direction: column; 
+    height: 100vh;
+    background-color: black;
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+}
+
+.container{
+    padding: 0 20px;
+    
+}
+nav{
+    width: 100%;
+    padding:10px 0;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid gray;
+
+    justify-content: space-between;
+    background-color: #161D24;
+}
+.logo{
+    width: 60px;
+    cursor: pointer;
+    margin-left: 20px;
+   
+}
+nav ul{
+    list-style: none; 
+    display: flex;
+    
+}
+nav ul li{
+    margin-right: 20px; 
+}
+nav ul li a{
+    color: #FFFFFF;
+    text-decoration: none;
+
+    font-weight: bold; 
+    font-size: 16px; 
+    transition: color 0.3s ease; 
+}
+nav ul li a:hover {
+    color: #61dafb; 
+}
+nav .log{
+    color: #fff;
+    text-decoration: none;
+
+}
+.log {
+    color: #FFFFFF;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 16px;
+    margin-right: 20px; 
+    transition: color 0.3s ease;
+}
+.log:hover {
+    color: #61dafb;
+}
+
+.crypto-dashboard {
+    background-color: #161D24;
+    margin: 5px;
+    padding: 5px;
+    display: flex;
+    border-radius: 15px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    color: #FFFFFF;
+    flex-direction: row;
+}
+
+.trade{
+    color: #FFFFFF;
+}
+
+
+.market-selector label,
+.crypto-details h2,
+.crypto-details p,
+.wallet-details h3,
+.wallet-details p {
+    color: #FFFFFF; 
+}
+
+.user-wallet,
+.graph {
+    background-color: #1A232D; 
+}
+
+.left-panel {
+    flex: 1;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+}
+
+.header {
+    text-align: center;
+    font-size: 36px;
+    color: #61dafb;
+    margin-bottom: 20px;
+}
+
+.market-selector label {
+    font-size: 18px;
+    color: #61dafb;
+}
+
+.market-selector select {
+    padding: 8px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    background-color: #3E4C59;
+    color: #FFFFFF;
+    margin-bottom: 20px;
+}
+
+.buy-sell {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+button {
+    padding: 12px 24px;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button#buy-button {
+    background-color: #009688;
+    color: #FFFFFF;
+}
+
+button#sell-button {
+    background-color: #FF5722;
+    color: #FFFFFF;
+    margin-left: 10px;
+}
+
+button:hover {
+    background-color: #00796B;
+}
+
+.crypto-details h2 {
+    font-size: 28px;
+    margin: 0;
+}
+
+.crypto-details p {
+    font-size: 16px;
+    margin: 0;
+}
+
+.right-panel {
+    flex: 2; 
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    
+}
+
+.user-wallet {
+    padding: 20px;
+    background-color: #1A232D;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+    margin-bottom: 20px;
+}
+
+.user-wallet h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #61dafb;
+}
+
+.wallet-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.wallet-logo {
+    background-color: #1A232D;
+    padding: 8px;
+    border-radius: 50%;
+    margin-right: 20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+}
+
+.wallet-logo img {
+    width: 30px;
+    height: 30px;
+}
+
+.wallet-details h3 {
+    font-size: 16px;
+    margin: 0;
+    color: #61dafb;
+}
+
+.wallet-details p {
+    font-size: 14px;
+    margin: 0;
+}
+
+.graph {
+    background-color: #1A232D;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+    flex-grow: 2; 
+    height: 100%;
+}
