@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
     <body>
+        <!-- Header -->
         <div class="container" >
             <nav>
                 <img src="logos/crypto.png" class="logo">
@@ -19,7 +20,7 @@
         </div>
         <br>
         <br>
-    
+        <!--Left panel -->
         <div class="crypto-dashboard">
             <div class="left-panel">
                 <div class="header">
@@ -34,9 +35,10 @@
                         <option value="USDT-USD">Tether (USDT) - USD</option>
                         <option value="BNB-USD">Binance Coin (BNB) - USD</option>
                         <option value="XRP-USD">XRP (XRP) - USD</option>
-                        <!-- Add more trading pairs as needed -->
+                        <!-- trading pairs  -->
                     </select>
                 </div>
+                <!-- Buy and sell section -->
                 <div class="buy-sell">
                     <button id="buy-button">Buy</button>
                     <button id="sell-button">Sell</button>
@@ -45,6 +47,7 @@
                     <h2>Bitcoin (BTC)</h2>
                     <p>Price: $<span id="crypto-value">0.00</span></p>
                 </div>
+                <!-- Wallet section -->
                 <div class="user-wallet">
                     <h2 style="color:white;">My Wallet</h2>
                     <div class="wallet-item">
@@ -94,17 +97,44 @@
                     </div>
                 </div>
             </div>
+            <!-- Right panel -->
             <div class="right-panel">
-                
-                <div class="graph">
-                    <h2>Graph placeholder</h2><!-- Graph will be generated here -->
+                <!-- Top graph section -->
+                <div class="graph-container">
+                    <div class="graph-top">
+                        <h2>Graph 1 Placeholder</h2><!-- Graph 1 will be generated here -->
+                    </div>
+                    <!-- Bottom graph section -->
+                    <div class="graph-bottom">
+                        <div class="crypto-chart">
+                            <div class="crypto">
+                                <h3>Bitcoin (BTC)</h3>
+                                <div class="chart-placeholder"></div>
+                            </div>
+                            <div class="crypto">
+                                <h3>Ethereum (ETH)</h3>
+                                <div class="chart-placeholder"></div>
+                            </div>
+                            <div class="crypto">
+                                <h3>Tether (USDT)</h3>
+                                <div class="chart-placeholder"></div>
+                            </div>
+                            <div class="crypto">
+                                <h3>Binance Coin (BNB)</h3>
+                                <div class="chart-placeholder"></div>
+                            </div>
+                            <div class="crypto">
+                                <h3>XRP (XRP)</h3>
+                                <div class="chart-placeholder"></div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-        <script src="script.js"></script>
-        
+        </div>    
+
+    
+    <script src="script.js"></script>
         
     </body>
-    </html>
-</body>
 </html>

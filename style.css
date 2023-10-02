@@ -12,6 +12,7 @@ body {
     display: flex;
 }
 
+/* Header section */
 .container{
     padding: 0 20px;
     
@@ -68,6 +69,7 @@ nav .log{
     color: #61dafb;
 }
 
+/* dashboard panels section*/
 .crypto-dashboard {
     background-color: #161D24;
     margin: 5px;
@@ -220,11 +222,65 @@ button:hover {
     margin: 0;
 }
 
-.graph {
+/* Graphs sections */
+.right-panel {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+}
+
+.graph-container {
+    display: flex;
+    flex-direction: column;
+    background-color: #161D24;
+    border-radius: 15px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    color: #FFFFFF;
+    height: 100%; 
+}
+
+.graph-top,
+.graph-bottom {
+    flex: 1; 
     background-color: #1A232D;
     border-radius: 10px;
     padding: 20px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
-    flex-grow: 2; 
-    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 10px;
+}
+
+.graph-top h2,
+.graph-bottom h2 {
+    font-size: 24px;
+    margin: 0;
+    color: #61dafb;
+}
+
+/* Charts section */
+.crypto-chart {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; 
+}
+
+.crypto {
+    flex: 1;
+    padding: 10px;
+    background-color: #283140;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+    text-align: center;
+}
+
+.chart-placeholder {
+    width: 100%;
+    height: 200px; 
+    background-color: #1A232D;
+    border-radius: 10px;
+    margin-top: 10px; 
 }
