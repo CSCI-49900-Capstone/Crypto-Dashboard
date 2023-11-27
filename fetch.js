@@ -39,7 +39,7 @@ const api = {
       }),
     })
     if (result?.data?.token) {
-      localStorage.setItem(AUTH_TOKEN, result.token);
+      localStorage.setItem(AUTH_TOKEN, result.data.token);
     }
     return result
   },
