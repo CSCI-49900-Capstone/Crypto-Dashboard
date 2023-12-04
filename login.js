@@ -23,7 +23,7 @@ loginForm.addEventListener('submit', async (event)=> {
     password: password.value,
   })
   if (result.ok) {
-    window.location.href = '/';
+    window.location.href = './';
   } else {
     alert(result.error);
   }
