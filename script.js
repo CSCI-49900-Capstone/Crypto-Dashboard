@@ -233,7 +233,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   if (!isAuth) {
     popupWrapper.innerHTML = `
-      <a href="/login" class="log">Log In</a>
+      <a href="./login" class="log">Log In</a>
     `
     tickerSelect.disabled = true;
     orderForm.classList.remove('loading');
