@@ -1,4 +1,4 @@
-const API_URL = "https://feasible-mint-werewolf.ngrok-free.app"
+const API_URL = "https://engaged-phoenix-ruling.ngrok-free.app"
 const AUTH_TOKEN = "AUTH_TOKEN"
 
 function isAuthenticated() {
@@ -92,7 +92,7 @@ const api = {
   async disableAuthTrading(ticker) {
     return await request('/auto-trade', {
       method: 'DELETE',
-      body: JSON.stringify({ 
+      body: JSON.stringify({
         ticker: ticker, // BTC-USD
       }),
     })
