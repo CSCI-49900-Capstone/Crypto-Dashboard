@@ -248,7 +248,13 @@ document.addEventListener('DOMContentLoaded', async () => {
   if (isAuth) {
     popupWrapper.innerHTML = `
       <span class="log">My Profile</span>
+      <span class="log" id="logout-button">Log Out</span>
     `
+    const logoutButton = document.querySelector('#logout-button');
+    logoutButton.addEventListener('click', async () => {
+      await api.signOut();
+      window.location.href = './';
+    });
     const profile = await api.getProfile();
     const popup = createProfilePopup(profile.data);
     popupWrapper.addEventListener('click', (event) => {
