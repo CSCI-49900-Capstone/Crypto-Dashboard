@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AutoTrading | Trade</title>
+    <link rel="stylesheet" href="style.css">
+    <script defer src="./fetch.js"></script>
+    <script defer src="./transaction.js"></script>
+    <style>
+      main {
+        padding: 2rem;
+      }
+
+      table#transactions {
+        width: 100%;
+        border-collapse: collapse;
+      }
+
+      table#transactions td,
+      table#transactions th {
+        border: 1px solid #ddd;
+        padding: 8px;
+        white-space: nowrap;
+      }
+
+      table#transactions tbody tr {
+        font-size: 0.8rem;
+      }
+    </style>
+</head>
+<body>
+  <header>
+    <h1><a href="/">Home</a></h1>
+  </header>
+  <main>
+    <table id="transactions">
+      <thead>
+        <tr>
+          <th>Ticker</th>
+          <th>Buy Price</th>
+          <th>Buy Fee</th>
+          <th>Buy Quantity</th>
+          <th>Sell Price</th>
+          <th>Sell Fee</th>
+          <th>Sell Quantity</th>
+          <th>Failure Reason</th>
+          <th>Created At</th>
+          <th>Completed At</th>
+        </tr>
+      </thead>
+      <tbody>
+      </tbody>
+    </table>
+  </main>
+</body>
+</html>

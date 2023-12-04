@@ -1,6 +1,10 @@
 const API_URL = "https://feasible-mint-werewolf.ngrok-free.app"
 const AUTH_TOKEN = "AUTH_TOKEN"
 
+function isAuthenticated() {
+  return localStorage.getItem(AUTH_TOKEN) !== null
+}
+
 async function request(path, options = {}) {
   path = path.startsWith('/') ? path : `/${path}`
   token = localStorage.getItem(AUTH_TOKEN)
@@ -43,6 +47,9 @@ const api = {
     }
     return result
   },
+  async signOut() {
+    localStorage.removeItem(AUTH_TOKEN);
+  },
   async getProfile() {
     return request('/profile', {
       method: 'GET',
@@ -67,22 +74,32 @@ const api = {
       localStorage.removeItem(AUTH_TOKEN);
     }
   },
+  async getAutoTrading() {
+    return request('/auto-trade', {
+      method: 'GET',
+    })
+  },
   async enableAutoTrading(input = {}) {
-    return await request('/auto-trade/enable', {
-      method: 'PATCH',
+    return await request('/auto-trade', {
+      method: 'POST',
       body: JSON.stringify({
         k: input.k, // 0.1 ~ 1.0
-        ratio: input.ratio, // 0.10 ~ 1.00
+        ratio: input.ratio, // 0.00 ~ 1.00
         ticker: input.ticker, // BTC-USD
       }),
     })
   },
   async disableAuthTrading(ticker) {
-    return await request('/auto-trade/disable', {
-      method: 'PATCH',
+    return await request('/auto-trade', {
+      method: 'DELETE',
       body: JSON.stringify({ 
         ticker: ticker, // BTC-USD
       }),
+    })
+  },
+  async getTickers() {
+    return request('/tickers', {
+      method: 'GET',
     })
   },
   async getTransactions(ticker) {

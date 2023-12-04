@@ -1,77 +1,94 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="style.css">
+  <script defer src="./fetch.js"></script>
 </head>
+
 <body>
-    <!-- Header -->
-    <div class="container">
-        <nav>
-            <div class="left-section">
-                <img src="logos/crypto.png" class="logo">
-                <div class="market-selector">
-                    <label style="color:white;" for="market-select">Select Market:</label>
-                    <select id="market-select" name="market">
-                        <option value="BTC-USD">Bitcoin (BTC) - USD</option>
-                        <option value="ETH-USD">Ethereum (ETH) - USD</option>
-                        <option value="USDT-USD">Tether (USDT) - USD</option>
-                        <option value="BNB-USD">Binance Coin (BNB) - USD</option>
-                        <option value="XRP-USD">XRP (XRP) - USD</option>
-                        <!-- trading pairs  -->
-                    </select>
-                </div>
-                <ul>
-                    <li><a href="#">Trade</a></li>
-                </ul>
-            </div>
-            <a href="login.html" class="log">Log in</a>
-        </nav>
-    </div>
-        
-    <!-- Left panel -->
-    <div class="crypto-dashboard">
-        <div class="left-panel">
-            <div class="header">
-                <h4 class="trade">Start trading</h4>
-            </div>
-            <br>
-            <div class="crypto-details">
-                <h3 id="trading-pair-name">Bitcoin (BTC)</h3>
-                <p>Price: $<span id="crypto-value">0.00</span></p>
-            </div>
+  <!-- Header -->
+  <div class="container">
+    <nav>
+      <div class="left-section">
+        <img src="logos/crypto.png" class="logo">
+        <div class="market-selector">
+          <label style="color:white;" for="market-select">Select Market:</label>
+          <select id="market-select" name="market">
+            <option value="BTC-USD">Bitcoin (BTC) - USD</option>
+            <option value="ETH-USD">Ethereum (ETH) - USD</option>
+            <option value="USDT-USD">Tether (USDT) - USD</option>
+            <option value="BNB-USD">Binance Coin (BNB) - USD</option>
+            <option value="XRP-USD">XRP (XRP) - USD</option>
+            <!-- trading pairs  -->
+          </select>
+        </div>
+        <ul>
+          <li><a href="/trade">Trade</a></li>
+        </ul>
+      </div>
+      <div class="popup-wrapper"></div>
+    </nav>
+  </div>
 
-            <!-- Buy and sell section -->
-            <button id="getStartedButton">Get Started</button>
-            <div id="orderForm" hidden>
-                <div class="order">
-                    <h2>Order Form</h2>
-                </div><br>
+  <!-- Left panel -->
+  <div class="crypto-dashboard">
+    <div class="left-panel">
+      <div class="header">
+        <h4 class="trade">Start trading</h4>
+      </div>
+      <br>
+      <div class="crypto-details">
+        <h3 id="trading-pair-name">Bitcoin (BTC)</h3>
+        <p>Price: $<span id="crypto-value">0.00</span></p>
+      </div>
 
-                <form class="order-form">
-                    <button type="button" class="buy-sell-btn buy-active">BUY</button>
-                    <button type="button" class="buy-sell-btn">SELL</button>
-                    
-                    <label for="amount">Amount</label>
-                    <div class="amount-box">
-                        <input type="text" id="amount" name="amount" placeholder="0.00" class="amount-input">
-                        <div class="currency-display">USD</div>
-                    </div><br>
-                     
-                    <div class="fee-info">
+      <!-- Buy and sell section -->
+      <!-- <button id="getStartedButton">Get Started</button> -->
+      <div id="orderForm">
+        <div class="order">
+          <h2>Auto Trading</h2>
+        </div><br>
+
+        <form class="order-form loading">
+          <!-- <button type="button" class="buy-sell-btn buy-active">BUY</button> -->
+          <!-- <button type="button" class="buy-sell-btn">SELL</button> -->
+
+          <label for="select-ticker">Product</label>
+          <div class="amount-box">
+            <select id="select-ticker" required></select>
+          </div><br>
+
+
+          <label for="average-noise-ratio">Average Noise Ratio</label>
+          <div class="amount-box">
+            <input type="number" min="0.1" max="1.0" step="0.1" id="average-noise-ratio" placeholder="0.1 ~ 1.0"
+              class="amount-input" required>
+            <!-- <div class="currency-display">USD</div> -->
+          </div><br>
+
+          <label for="balance-ratio">Balance Ratio</label>
+          <div class="amount-box">
+            <input type="number" min="0.01" max="1.0" step="0.01" id="balance-ratio" placeholder="0.01 ~ 1.00"
+              class="amount-input" required>
+            <!-- <div class="currency-display">USD</div> -->
+          </div><br>
+
+          <!-- <div class="fee-info">
                         <p>Fee <span class="fee">N/A</span> USD</p><br>
                         <p>Total <span class="total">N/A</span> BTC</p>
-                    </div>
-                    
-                    <button type="submit" class="place-order-btn">PLACE BUY ORDER</button>
-                </form>
-            </div>
+                    </div> -->
+
+          <button type="submit" class="place-order-btn">Enable</button>
+        </form>
+      </div>
 
 
-            <!--<form class="order-form">
+      <!--<form class="order-form">
                 <button type="button" class="buy-sell-btn buy-active">BUY</button>
                 <button type="button" class="buy-sell-btn">SELL</button>
                 
@@ -90,178 +107,183 @@
             </form>
         </div> -->
 
-            <!-- Wallet section -->
-            <div class="user-wallet">
-                <h2 style="color:white;">My Wallet</h2>
-                <div class="wallet-item">
-                    <div class="wallet-logo">
-                        <img src="logos/bitcoin.png" alt="Bitcoin Logo">
-                    </div>
-                    <div class="wallet-details">
-                        <h3 style="color:white">Bitcoin (BTC)</h3>
-                        <p>Balance: <span id="wallet-balance-btc">0.00</span> BTC</p>
-                    </div>
-                </div>
-                <div class="wallet-item">
-                    <div class="wallet-logo">
-                        <img src="logos/ethereum.png" alt="Ethereum Logo">
-                    </div>
-                    <div class="wallet-details">
-                        <h3 style="color:white;">Ethereum (ETH)</h3>
-                        <p>Balance: <span id="wallet-balance-eth">0.00</span> ETH</p>
-                    </div>
-                </div>
-                <div class="wallet-item">
-                    <div class="wallet-logo">
-                        <img src="logos/tether.png" alt="Tether Logo">
-                    </div>
-                    <div class="wallet-details">
-                        <h3 style="color:white">Tether (USDT)</h3>
-                        <p>Balance: <span id="wallet-balance-tet">0.00</span> USDT</p>
-                    </div>
-                </div>
-                <div class="wallet-item">
-                    <div class="wallet-logo">
-                        <img src="logos/binance-Coin.png" alt="Binance Coin Logo">
-                    </div>
-                    <div class="wallet-details">
-                        <h3 style="color:white">Binance Coin (BNB)</h3>
-                        <p>Balance: <span id="wallet-balance-bin">0.00</span> BNB</p>
-                    </div>
-                </div>
-                <div class="wallet-item">
-                    <div class="wallet-logo">
-                        <img src="logos/xrp.png" alt="XRP Logo">
-                    </div>
-                    <div class="wallet-details">
-                        <h3 style="color:white">XRP (XRP)</h3>
-                        <p>Balance: <span id="wallet-balance-xrp">0.00</span> XRP</p>
-                    </div>
-                </div>
-            </div>
+      <!-- Wallet section -->
+      <div class="user-wallet">
+        <h2 style="color:white;">My Wallet</h2>
+        <div class="wallet-item">
+          <div class="wallet-logo">
+            <img src="logos/bitcoin.png" alt="Bitcoin Logo">
+          </div>
+          <div class="wallet-details">
+            <h3 style="color:white">Bitcoin (BTC)</h3>
+            <p>Balance: <span id="wallet-balance-btc">0.00</span> BTC</p>
+          </div>
         </div>
-
-        <!-- Right panel -->
-        <div class="right-panel">
-            <!-- Top graph section -->
-            <!-- TradingView Widget BEGIN -->
-            <div class="tradingview-widget-container">
-                <div id="tradingview_afe69"></div>
-                <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/" rel="noopener nofollow" target="_blank"><span class="blue-text">Track all markets on TradingView</span></a></div>
-                <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
-                <script type="text/javascript">
-                new TradingView.widget(
-                {
-                "autosize": true,
-                "symbol": "COINBASE:BTCUSD",
-                "timezone": "Etc/UTC",
-                "interval": "D",
-                "theme": "dark",
-                "style": "1",
-                "locale": "en",
-                "enable_publishing": true,
-                "withdateranges": true,
-                "range": "YTD",
-                "hide_side_toolbar": false,
-                "allow_symbol_change": true,
-                "details": true,
-                "hotlist": true,
-                "calendar": true,
-                "show_popup_button": true,
-                "popup_width": "1000",
-                "popup_height": "650",
-                "container_id": "tradingview_afe69"
-            }
-                );
-                </script>
-            </div>
-            <!-- TradingView Widget END -->
-
-            <!-- Bottom graph section -->
-            <!-- TradingView Widget BEGIN -->
-            <div class="tradingview-widget-container">
-                <div id="tradingview_afe70"></div>
-                <div class="tradingview-widget-container__widget"></div>
-                <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/" rel="noopener nofollow" target="_blank"><span class="blue-text">Track all markets on TradingView</span></a></div>
-                <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-screener.js" async>
-                {
-                "width": "100%",
-                "height": "900",
-                "defaultColumn": "overview",
-                "screener_type": "crypto_mkt",
-                "displayCurrency": "USD",
-                "colorTheme": "dark",
-                "locale": "en"
-                }
-                </script>
-            </div>
-            <!-- TradingView Widget END -->
-
-            <div id="global-chat">
-                <div id="chat-tab" onclick="toggleChat()">ChatHub</div>
-                <div id="chat-content" class="hidden">
-                    <div id="chat-messages"></div>
-                    <div id="message-input">
-                        <input type="text" id="global-chat-input" placeholder="Type a message..." onkeypress="handleKeyPress(event)">
-                        <button style="width: 60px;" onclick="sendManualMessage()">Send</button>
-                    </div>
-                </div>
-            </div>
-        
-            <script>
-                const users = ["Youssef", "Ceon", "Nash", "Saliou"];
-                let currentUserIndex = 0;
-                let autoMessageStarted = false;
-                let intervalId = null; // To keep track of the interval
-    
-                function sendGlobalMessage(message, username) {
-                    var chatMessages = document.getElementById("chat-messages");
-                    var usernameClass = username.toLowerCase() + "-username";
-                    chatMessages.innerHTML += '<p><span class="' + usernameClass + '">' + username + ':</span> ' + message + '</p>';
-                    chatMessages.scrollTop = chatMessages.scrollHeight;
-                }
-    
-                function sendManualMessage() {
-                    var input = document.getElementById("global-chat-input");
-                    var message = input.value.trim();
-                    if (message !== "") {
-                        sendGlobalMessage(message, "Hamza");
-                        input.value = '';
-                        if (!autoMessageStarted) {
-                            startAutomaticMessages();
-                            autoMessageStarted = true;
-                        }
-                    }
-                }
-    
-                function handleKeyPress(event) {
-                    if (event.key === 'Enter') {
-                        event.preventDefault();
-                        sendManualMessage();
-                    }
-                }
-    
-                function startAutomaticMessages() {
-                    if (!autoMessageStarted) {
-                        intervalId = setInterval(function() {
-                            const username = users[currentUserIndex];
-                            sendGlobalMessage("Hello", username);
-                            currentUserIndex = (currentUserIndex + 1) % users.length;
-                        }, 5000);
-                    }
-                }
-    
-                function toggleChat() {
-                    var chatContent = document.getElementById("chat-content");
-                    chatContent.classList.toggle("expanded");
-                    var chatBox = document.getElementById("global-chat");
-                    chatBox.style.height = chatContent.classList.contains("expanded") ? "400px" : "50px";
-                }
-            </script>            
-
+        <div class="wallet-item">
+          <div class="wallet-logo">
+            <img src="logos/ethereum.png" alt="Ethereum Logo">
+          </div>
+          <div class="wallet-details">
+            <h3 style="color:white;">Ethereum (ETH)</h3>
+            <p>Balance: <span id="wallet-balance-eth">0.00</span> ETH</p>
+          </div>
         </div>
+        <div class="wallet-item">
+          <div class="wallet-logo">
+            <img src="logos/tether.png" alt="Tether Logo">
+          </div>
+          <div class="wallet-details">
+            <h3 style="color:white">Tether (USDT)</h3>
+            <p>Balance: <span id="wallet-balance-tet">0.00</span> USDT</p>
+          </div>
+        </div>
+        <div class="wallet-item">
+          <div class="wallet-logo">
+            <img src="logos/binance-Coin.png" alt="Binance Coin Logo">
+          </div>
+          <div class="wallet-details">
+            <h3 style="color:white">Binance Coin (BNB)</h3>
+            <p>Balance: <span id="wallet-balance-bin">0.00</span> BNB</p>
+          </div>
+        </div>
+        <div class="wallet-item">
+          <div class="wallet-logo">
+            <img src="logos/xrp.png" alt="XRP Logo">
+          </div>
+          <div class="wallet-details">
+            <h3 style="color:white">XRP (XRP)</h3>
+            <p>Balance: <span id="wallet-balance-xrp">0.00</span> XRP</p>
+          </div>
+        </div>
+      </div>
     </div>
 
-    <script src="script.js"></script>
+    <!-- Right panel -->
+    <div class="right-panel">
+      <!-- Top graph section -->
+      <!-- TradingView Widget BEGIN -->
+      <div class="tradingview-widget-container">
+        <div id="tradingview_afe69"></div>
+        <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/" rel="noopener nofollow"
+            target="_blank"><span class="blue-text">Track all markets on TradingView</span></a></div>
+        <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
+        <script type="text/javascript">
+          new TradingView.widget(
+            {
+              "autosize": true,
+              "symbol": "COINBASE:BTCUSD",
+              "timezone": "Etc/UTC",
+              "interval": "D",
+              "theme": "dark",
+              "style": "1",
+              "locale": "en",
+              "enable_publishing": true,
+              "withdateranges": true,
+              "range": "YTD",
+              "hide_side_toolbar": false,
+              "allow_symbol_change": true,
+              "details": true,
+              "hotlist": true,
+              "calendar": true,
+              "show_popup_button": true,
+              "popup_width": "1000",
+              "popup_height": "650",
+              "container_id": "tradingview_afe69"
+            }
+          );
+        </script>
+      </div>
+      <!-- TradingView Widget END -->
+
+      <!-- Bottom graph section -->
+      <!-- TradingView Widget BEGIN -->
+      <div class="tradingview-widget-container">
+        <div id="tradingview_afe70"></div>
+        <div class="tradingview-widget-container__widget"></div>
+        <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/" rel="noopener nofollow"
+            target="_blank"><span class="blue-text">Track all markets on TradingView</span></a></div>
+        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-screener.js"
+          async>
+            {
+              "width": "100%",
+                "height": "900",
+                  "defaultColumn": "overview",
+                    "screener_type": "crypto_mkt",
+                      "displayCurrency": "USD",
+                        "colorTheme": "dark",
+                          "locale": "en"
+            }
+          </script>
+      </div>
+      <!-- TradingView Widget END -->
+
+      <div id="global-chat">
+        <div id="chat-tab" onclick="toggleChat()">ChatHub</div>
+        <div id="chat-content" class="hidden">
+          <div id="chat-messages"></div>
+          <div id="message-input">
+            <input type="text" id="global-chat-input" placeholder="Type a message..."
+              onkeypress="handleKeyPress(event)">
+            <button style="width: 60px;" onclick="sendManualMessage()">Send</button>
+          </div>
+        </div>
+      </div>
+
+      <script>
+        const users = ["Youssef", "Ceon", "Nash", "Saliou"];
+        let currentUserIndex = 0;
+        let autoMessageStarted = false;
+        let intervalId = null; // To keep track of the interval
+
+        function sendGlobalMessage(message, username) {
+          var chatMessages = document.getElementById("chat-messages");
+          var usernameClass = username.toLowerCase() + "-username";
+          chatMessages.innerHTML += '<p><span class="' + usernameClass + '">' + username + ':</span> ' + message + '</p>';
+          chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        function sendManualMessage() {
+          var input = document.getElementById("global-chat-input");
+          var message = input.value.trim();
+          if (message !== "") {
+            sendGlobalMessage(message, "Hamza");
+            input.value = '';
+            if (!autoMessageStarted) {
+              startAutomaticMessages();
+              autoMessageStarted = true;
+            }
+          }
+        }
+
+        function handleKeyPress(event) {
+          if (event.key === 'Enter') {
+            event.preventDefault();
+            sendManualMessage();
+          }
+        }
+
+        function startAutomaticMessages() {
+          if (!autoMessageStarted) {
+            intervalId = setInterval(function () {
+              const username = users[currentUserIndex];
+              sendGlobalMessage("Hello", username);
+              currentUserIndex = (currentUserIndex + 1) % users.length;
+            }, 5000);
+          }
+        }
+
+        function toggleChat() {
+          var chatContent = document.getElementById("chat-content");
+          chatContent.classList.toggle("expanded");
+          var chatBox = document.getElementById("global-chat");
+          chatBox.style.height = chatContent.classList.contains("expanded") ? "400px" : "50px";
+        }
+      </script>
+
+    </div>
+  </div>
+
+  <script src="script.js"></script>
 </body>
-</html>           
+
+</html>
